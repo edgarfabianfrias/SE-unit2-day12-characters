@@ -11,9 +11,11 @@ function setup(){
 
 function draw(){
 
-    //image(myImage, 0, 0, 600, 600);
     image(myTotoroImage, 0, 0, 100, 100);
 
 
 }
+
+
+
 
