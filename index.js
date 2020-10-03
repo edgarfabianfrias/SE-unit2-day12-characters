@@ -1,18 +1,27 @@
 
 let myTotoroImage;
-const imgHeight = 100;
+const imgSize = 100;
 const ground = {
     y: 550,
     color: 'brown',
 }
 
+const totoroObject = { 
+    x: 0,
+    y: ground.y - imgSize,
+    w: imgSize,
+    h: imgSize,
+
+}
 
 const imageHeight = 100;
 
 
 function preload(){
     
-    myTotoroImage = loadImage('assets/totoro-use.png');
+    // myTotoroImage = loadImage('assets/totoro-use.png');
+    totoroObject.image = loadImage('assets/totoro-use.png');
+
 }
 function setup(){
     createCanvas( 600, 600);
@@ -21,7 +30,7 @@ function setup(){
 function draw(){
 
     drawGround(ground);
-    image(myTotoroImage, 0, ground.y - imgHeight, 100, imgHeight);
+    image(totoroObject.image, totoroObject.x, totoroObject.y, totoroObject.w, totoroObject.h);
 
 
 }
