@@ -1,9 +1,17 @@
 
 let myTotoroImage;
 
+const ground = {
+    y: 550,
+    color: 'brown',
+}
+
+const imageHeight = 100;
+
+
 function preload(){
     
-    myTotoroImage = loadImage('totoro-use.png');
+    myTotoroImage = loadImage('assets/totoro-use.png');
 }
 function setup(){
     createCanvas( 600, 600);
@@ -17,5 +25,9 @@ function draw(){
 }
 
 
+function drawGround(ground){
+    fill(ground.color);
+    rect(0, ground.y, width, height - ground.y);
+}
 
 
