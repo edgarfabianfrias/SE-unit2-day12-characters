@@ -3,7 +3,7 @@ let myTotoroImage;
 
 function preload(){
     
-    myTotoroImage = loadImage('totoro-use.png');
+    myTotoroImage = loadImage('assets/totoro-use.png');
 }
 function setup(){
     createCanvas( 600, 600);
