@@ -32,11 +32,11 @@ class SmilingCharacter extends Character {
     constructor({ x, y, w, h, img, speed }){
         const addHeight = 200;
         super({ x, y, w, h, img, speed});
-        this.y = this.y - addHeight;
+        this.y = this.y - addHeight -200;
         this.w = w + addHeight/2;
         this.h = h + addHeight;
         this.jumpingValue = 30;
-        this.originY = this.y;
+        this.originY = y - 200;
         this.driftSpeed = 3;
            
     }
@@ -48,6 +48,19 @@ class SmilingCharacter extends Character {
     driftDown(){
         if(this.y < this.originY){
             this.y += this.driftSpeed;
+        }
+    }
+}
+
+
+class LittleCharacter extends Character {
+    constructor({ x, y, w, h, img, speed}){
+        super({ x, y, w, h, img, speed});
+    }
+
+    checkEdges(){
+        if(this.x <= 10 || this.x > canvasWidth - this.w  - 50 ){
+            this.speed *= -1;
         }
     }
 }

@@ -10,16 +10,16 @@ const ground = {
 }
 
 const totoroObject = { 
-    x: 0,
+    x: 11,
     y: ground.y - imgSize,
     w: imgSize,
     h: imgSize,
-    speed: 10,
+    speed: 1,
 }
 
 
 const smilingTotoroObject = { 
-    x: 100,
+    x: 200,
     y: ground.y - imgSize,
     w: imgSize,
     h: imgSize,
@@ -29,11 +29,11 @@ const smilingTotoroObject = {
 }
 
 const pikachuObject = { 
-    x: 200,
+    x: 400,
     y: ground.y - imgSize,
     w: imgSize,
     h: imgSize,
-    speed: 5,
+    speed: 2,
 }
 
 
@@ -54,8 +54,8 @@ function setup(){
 
     
     // smilingCharacter = new Character(smilingTotoroObject);
-    confusedCharacter = new Character(totoroObject);
-    pikachuCharacter = new Character(pikachuObject);
+    confusedCharacter = new LittleCharacter(totoroObject);
+    pikachuCharacter = new LittleCharacter(pikachuObject);
 
 
     smilingCharacter = new SmilingCharacter(smilingTotoroObject);
@@ -72,8 +72,11 @@ function draw(){
     smilingCharacter.display();
 
 
+    confusedCharacter.checkEdges();
     confusedCharacter.move('right');
     confusedCharacter.display();
+
+    pikachuCharacter.checkEdges();
     pikachuCharacter.move('left');
     pikachuCharacter.display();
 
