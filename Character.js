@@ -18,23 +18,16 @@ class Character {
         } else if(direction === 'right'){
             this.x += amount;
         }
-
     }
 
-    constantMove(){
-        if(this.x < 0  || this.x > canvasWidth - this.w){
-            this.speed *= -1;
-        }
-        this.x += this.speed;
-    }
 
 }
 
 
-// class SmilingCharacter extends Character {
-//     constructor({x, y, w, h, img, speed}){
-//         super({x, y, w, h, img, speed})
-//         this.h = h * 2.5;
-//         this.w = w * 2;
-//     }
-// }
+class SmilingCharacter extends Character {
+    constructor({x, y, w, h, img, speed}){
+        super({x, y, w, h, img, speed})
+        this.h = h * 2.5;
+        this.w = w * 2;
+    }
+}
