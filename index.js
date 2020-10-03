@@ -1,10 +1,11 @@
 
 let myTotoroImage;
-
+const imgHeight = 100;
 const ground = {
     y: 550,
     color: 'brown',
 }
+
 
 const imageHeight = 100;
 
@@ -19,7 +20,8 @@ function setup(){
 
 function draw(){
 
-    image(myTotoroImage, 0, 0, 100, 100);
+    drawGround(ground);
+    image(myTotoroImage, 0, ground.y - imgHeight, 100, imgHeight);
 
 
 }
