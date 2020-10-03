@@ -33,10 +33,11 @@ function draw(){
     background(200,190,250);
     drawGround(ground);
     
-    if(totoroObject.x < 0  || totoroObject.x > width - totoroObject.w){
-        totoroObject.speed *= -1;
-    }
-    totoroObject.x += totoroObject.speed;
+    checkKeyInput();
+    // if(totoroObject.x < 0  || totoroObject.x > width - totoroObject.w){
+    //     totoroObject.speed *= -1;
+    // }
+    // totoroObject.x += totoroObject.speed;
 
     image(totoroObject.image, totoroObject.x, totoroObject.y, totoroObject.w, totoroObject.h);
 
@@ -49,4 +50,14 @@ function drawGround(ground){
     rect(0, ground.y, width, height - ground.y);
 }
 
+
+function checkKeyInput(){
+    if(keyIsDown(RIGHT_ARROW)){
+        totoroObject.x += totoroObject.speed;
+    }
+
+    if(keyIsDown(LEFT_ARROW)){
+        totoroObject.x -= totoroObject.speed;
+    }
+}
 
