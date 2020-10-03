@@ -1,7 +1,7 @@
 
 let smilingTotoroImage, confusedTotoroImage, pikachuImage;
 let smilingCharacter, confusedCharacter, pikachuCharacter;
-const imgSize = 200;
+const imgSize = 100;
 const canvasWidth = 600, canvasHeight = 600;
 
 const ground = {
@@ -24,6 +24,8 @@ const smilingTotoroObject = {
     w: imgSize,
     h: imgSize,
     speed: 3,
+    addHeight: 200,
+    jumpingValue: 30,
 }
 
 const pikachuObject = { 
@@ -66,14 +68,14 @@ function draw(){
     drawGround(ground);
     
     checkKeyInput();
-    
+    smilingCharacter.driftDown();
     smilingCharacter.display();
 
 
-    // confusedCharacter.constantMove();
-    // confusedCharacter.display();
-    // pikachuCharacter.constantMove();
-    // pikachuCharacter.display();
+    confusedCharacter.move('right');
+    confusedCharacter.display();
+    pikachuCharacter.move('left');
+    pikachuCharacter.display();
 
 
 }
@@ -86,16 +88,16 @@ function drawGround(ground){
 
 function checkKeyInput(){
     if(keyIsDown(RIGHT_ARROW)){
-        smilingCharacter.move('right', 1);
+        smilingCharacter.move('right');
     }
 
     if(keyIsDown(LEFT_ARROW)){
-        smilingCharacter.move('left', 1);
+        smilingCharacter.move('left');
     }
 
-    // if(keyIsDown(UP_ARROW)){
-    //     myPlayerBall.jump();
-    // }
+    if(keyIsDown(UP_ARROW)){
+        smilingCharacter.jump();
+    }
 
     // if(keyIsDown(DOWN_ARROW)){
     //     myPlayerBall.move('y', 1);
