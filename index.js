@@ -1,6 +1,7 @@
 
 let smilingTotoroImage, confusedTotoroImage, pikachuImage;
 let smilingCharacter, confusedCharacter, pikachuCharacter;
+let gameOver = false;
 const imgSize = 100;
 const canvasWidth = 600, canvasHeight = 600;
 
@@ -67,6 +68,43 @@ function setup(){
 }
 
 function draw(){
+    
+    checkGameOver();
+
+    if(!gameOver){
+        drawGame();
+    } else {
+        background(0);
+    }
+    
+
+}
+
+
+function drawGround(ground){
+    fill(ground.color);
+    rect(0, ground.y, width, height - ground.y);
+}
+
+function checkKeyInput(){
+    if(keyIsDown(RIGHT_ARROW)){
+        smilingCharacter.move('right');
+    }
+
+    if(keyIsDown(LEFT_ARROW)){
+        smilingCharacter.move('left');
+    }
+
+    if(keyIsDown(UP_ARROW)){
+        smilingCharacter.jump();
+    }
+
+    // if(keyIsDown(DOWN_ARROW)){
+    //     myPlayerBall.move('y', 1);
+    // }
+}
+
+function drawGame(){
     background(200,190,250);
     drawGround(ground);
     
@@ -96,31 +134,11 @@ function draw(){
         littles.push(new LittleCharacter(object));
     }
 
-
 }
 
-
-function drawGround(ground){
-    fill(ground.color);
-    rect(0, ground.y, width, height - ground.y);
+function checkGameOver(){
+    if(smilingCharacter.y > 250){
+        gameOver = true;
+    }
 }
-
-function checkKeyInput(){
-    if(keyIsDown(RIGHT_ARROW)){
-        smilingCharacter.move('right');
-    }
-
-    if(keyIsDown(LEFT_ARROW)){
-        smilingCharacter.move('left');
-    }
-
-    if(keyIsDown(UP_ARROW)){
-        smilingCharacter.jump();
-    }
-
-    // if(keyIsDown(DOWN_ARROW)){
-    //     myPlayerBall.move('y', 1);
-    // }
-}
-
 
