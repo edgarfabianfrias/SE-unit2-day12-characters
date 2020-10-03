@@ -41,6 +41,9 @@ const pikachuObject = {
 const imageHeight = 100;
 
 
+const littles = [];
+
+
 function preload(){
     
     // myTotoroImage = loadImage('assets/totoro-use.png');
@@ -54,8 +57,8 @@ function setup(){
 
     
     // smilingCharacter = new Character(smilingTotoroObject);
-    confusedCharacter = new LittleCharacter(totoroObject);
-    pikachuCharacter = new LittleCharacter(pikachuObject);
+    littles.push(new LittleCharacter(totoroObject));
+    littles.push(new LittleCharacter(pikachuObject));
 
 
     smilingCharacter = new SmilingCharacter(smilingTotoroObject);
@@ -68,17 +71,22 @@ function draw(){
     drawGround(ground);
     
     checkKeyInput();
+
+    littles.forEach( little => {
+        little.update();
+        little.display();
+    })
+
+
     smilingCharacter.driftDown();
     smilingCharacter.display();
 
 
-    confusedCharacter.checkEdges();
-    confusedCharacter.move('right');
-    confusedCharacter.display();
+    // confusedCharacter.update();
+    // confusedCharacter.display();
 
-    pikachuCharacter.checkEdges();
-    pikachuCharacter.move('left');
-    pikachuCharacter.display();
+    // pikachuCharacter.update();
+    // pikachuCharacter.display();
 
 
 }
