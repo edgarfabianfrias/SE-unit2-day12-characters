@@ -51,12 +51,12 @@ function setup(){
     createCanvas( canvasWidth, canvasHeight);
 
     
-    smilingCharacter = new Character(smilingTotoroObject);
+    // smilingCharacter = new Character(smilingTotoroObject);
     confusedCharacter = new Character(totoroObject);
     pikachuCharacter = new Character(pikachuObject);
 
 
-    // smilingCharacter = new SmilingCharacter(smilingTotoroObject);
+    smilingCharacter = new SmilingCharacter(smilingTotoroObject);
 
 
 }
@@ -65,13 +65,15 @@ function draw(){
     background(200,190,250);
     drawGround(ground);
     
-
-    smilingCharacter.constantMove();
+    checkKeyInput();
+    
     smilingCharacter.display();
-    confusedCharacter.constantMove();
-    confusedCharacter.display();
-    pikachuCharacter.constantMove();
-    pikachuCharacter.display();
+
+
+    // confusedCharacter.constantMove();
+    // confusedCharacter.display();
+    // pikachuCharacter.constantMove();
+    // pikachuCharacter.display();
 
 
 }
@@ -80,6 +82,24 @@ function draw(){
 function drawGround(ground){
     fill(ground.color);
     rect(0, ground.y, width, height - ground.y);
+}
+
+function checkKeyInput(){
+    if(keyIsDown(RIGHT_ARROW)){
+        smilingCharacter.move('right', 1);
+    }
+
+    if(keyIsDown(LEFT_ARROW)){
+        smilingCharacter.move('left', 1);
+    }
+
+    // if(keyIsDown(UP_ARROW)){
+    //     myPlayerBall.jump();
+    // }
+
+    // if(keyIsDown(DOWN_ARROW)){
+    //     myPlayerBall.move('y', 1);
+    // }
 }
 
 

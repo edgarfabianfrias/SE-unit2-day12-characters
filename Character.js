@@ -27,7 +27,8 @@ class Character {
 class SmilingCharacter extends Character {
     constructor({x, y, w, h, img, speed}){
         super({x, y, w, h, img, speed})
-        this.h = h * 2.5;
-        this.w = w * 2;
+        this.y = y -200;
+        this.h = h + 200;
+        this.w = w + 100;
     }
 }
