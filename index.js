@@ -120,25 +120,33 @@ function drawGame(){
     smilingCharacter.display();
 
 
-    if(Math.random() > 0.995){
-        
-        
-        const object = Math.random() > 0.5 ? totoroObject : pikachuObject;
-        // let object;
-        // if(Math.random() > 0.5){
-        //     object = totoroObject;
-        // } else {
-        //     object = pikachuObject;
-        // }
-
-        littles.push(new LittleCharacter(object));
+    if(Math.random() > 0.999){
+        addLittle()
     }
+        
+        
+
 
 }
 
 function checkGameOver(){
-    if(smilingCharacter.y > 250){
-        gameOver = true;
-    }
+    // if(smilingCharacter.y > 250){
+    //     gameOver = true;
+    // }
+
+    console.log(smilingCharacter.y);
+    console.log(littles[0].y);
+
+    littles.forEach(little => {
+        if(smilingCharacter.x > little.x && smilingCharacter.x < little.x + little.w && smilingCharacter.y + smilingCharacter.h > little.y){
+            gameOver = true;
+        }
+    })
+}
+
+
+function addLittle(){
+    const object = Math.random() > 0.5 ? totoroObject : pikachuObject;
+    littles.push(new LittleCharacter(object));
 }
 

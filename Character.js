@@ -1,9 +1,10 @@
 class LittleCharacter {
     constructor({x, y, w, h, img, speed}){
-        this.x = x;
-        this.y = y;
-        this.w = w;
-        this.h = h;
+        const removeHeight = 50;
+        this.x = x + 50;
+        this.y = y + 50;
+        this.w = w -50;
+        this.h = h -50;
         this.img = img;
         this.speed = speed;
         
@@ -74,6 +75,8 @@ class SmilingCharacter {
             this.y += this.driftSpeed;
         }
     }
+
+
 }
 
 
