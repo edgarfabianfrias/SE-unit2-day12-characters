@@ -82,11 +82,10 @@ function draw(){
     smilingCharacter.display();
 
 
-    // confusedCharacter.update();
-    // confusedCharacter.display();
-
-    // pikachuCharacter.update();
-    // pikachuCharacter.display();
+    if(Math.random() > 0.995){
+        const object = Math.random() > 0.5 ? totoroObject : pikachuObject;
+        littles.push(new LittleCharacter(object));
+    }
 
 
 }
