@@ -12,23 +12,19 @@ class Character {
         image(this.img, this.x, this.y, this.w, this.h)
     }
 
-    move(direction, amount){
+
+    move(direction){
         if(direction === 'left'){
-            this.x -= amount;
+            if(this.x > 0){
+                this.x -= this.speed;
+            }
         } else if(direction === 'right'){
-            this.x += amount;
+          if(this.x < canvasWidth - this.w){
+            this.x += this.speed;
+          }
         }
     }
 
 
 }
 
-
-class SmilingCharacter extends Character {
-    constructor({x, y, w, h, img, speed}){
-        super({x, y, w, h, img, speed})
-        this.y = y -200;
-        this.h = h + 200;
-        this.w = w + 100;
-    }
-}

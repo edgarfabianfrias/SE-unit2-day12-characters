@@ -1,7 +1,7 @@
 
 let smilingTotoroImage, confusedTotoroImage, pikachuImage;
 let smilingCharacter, confusedCharacter, pikachuCharacter;
-const imgSize = 200;
+const imgSize = 100;
 const canvasWidth = 600, canvasHeight = 600;
 
 const ground = {
@@ -51,12 +51,12 @@ function setup(){
     createCanvas( canvasWidth, canvasHeight);
 
     
-    // smilingCharacter = new Character(smilingTotoroObject);
+    smilingCharacter = new Character(smilingTotoroObject);
     confusedCharacter = new Character(totoroObject);
     pikachuCharacter = new Character(pikachuObject);
 
 
-    smilingCharacter = new SmilingCharacter(smilingTotoroObject);
+   
 
 
 }
@@ -67,13 +67,12 @@ function draw(){
     
     checkKeyInput();
     
+
     smilingCharacter.display();
-
-
-    // confusedCharacter.constantMove();
-    // confusedCharacter.display();
-    // pikachuCharacter.constantMove();
-    // pikachuCharacter.display();
+    confusedCharacter.move('right');
+    confusedCharacter.display();
+    pikachuCharacter.move('left');
+    pikachuCharacter.display();
 
 
 }
@@ -86,11 +85,11 @@ function drawGround(ground){
 
 function checkKeyInput(){
     if(keyIsDown(RIGHT_ARROW)){
-        smilingCharacter.move('right', 1);
+        smilingCharacter.move('right');
     }
 
     if(keyIsDown(LEFT_ARROW)){
-        smilingCharacter.move('left', 1);
+        smilingCharacter.move('left');
     }
 
     // if(keyIsDown(UP_ARROW)){
