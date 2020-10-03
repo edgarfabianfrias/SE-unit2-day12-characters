@@ -83,7 +83,16 @@ function draw(){
 
 
     if(Math.random() > 0.995){
+        
+        
         const object = Math.random() > 0.5 ? totoroObject : pikachuObject;
+        // let object;
+        // if(Math.random() > 0.5){
+        //     object = totoroObject;
+        // } else {
+        //     object = pikachuObject;
+        // }
+
         littles.push(new LittleCharacter(object));
     }
 
