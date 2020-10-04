@@ -2,7 +2,7 @@
 
 //variable for our image -- decalre it globally so we can access it in both the preload and draw functions.
 let myTotoroImage;
-const imgHeight = 100;
+const imgSize = 100;
 
 const canvasWidth = 600, canvasHeight = 600;
 const horizon = 500;
