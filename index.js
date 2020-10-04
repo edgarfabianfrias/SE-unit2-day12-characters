@@ -1,23 +1,17 @@
-
+//variable for our image -- decalre it globally so we can access it in both the preload and draw functions.
 let myTotoroImage;
 const imgSize = 100;
 
+const canvasWidth = 600, canvasHeight = 600;
+const horizon = 500;
 const ground = {
-    y: 550,
-    color: 'brown',
-}
-
-const totoroObject = { 
     x: 0,
-    y: ground.y - imgSize,
-    w: imgSize,
-    h: imgSize,
-    speed: 10,
+    y: horizon,
+    w: canvasWidth,
+    h: canvasHeight - horizon,
+    color: 'brown',
 
-}
-
-const imageHeight = 100;
-
+};
 
 function preload(){
     
@@ -26,7 +20,7 @@ function preload(){
 
 }
 function setup(){
-    createCanvas( 600, 600);
+    createCanvas( canvasWidth, canvasHeight);
 }
 
 function draw(){
@@ -46,7 +40,12 @@ function draw(){
 
 function drawGround(ground){
     fill(ground.color);
-    rect(0, ground.y, width, height - ground.y);
+    rect(ground.x, ground.y, ground.w, ground.h);
 }
+
+
+
+
+
 
 
