@@ -13,6 +13,15 @@ const ground = {
 
 };
 
+const totoroObject = { 
+    x: 0,
+    y: horizon - imgSize,
+    w: imgSize,
+    h: imgSize,
+    speed: 10,
+
+}
+
 function preload(){
     
     // myTotoroImage = loadImage('assets/totoro-use.png');
